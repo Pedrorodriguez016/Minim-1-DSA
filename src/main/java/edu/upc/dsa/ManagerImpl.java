@@ -67,12 +67,13 @@ public class ManagerImpl implements Manager {
     }
     @Override
     public void RegistroUsuario(int idUsuario, int posicionX, int posicionY){
-        logger.info("Registrando punto al usuario"+ idUsuario);
+        logger.info("Registrando punto al usuario "+ idUsuario);
         Persona persona= ConsultarInfo(idUsuario);
         Coordenadas coordenada = Buscacoordenadas(posicionX,posicionY);
-        if(persona!=null && coordenada != null){
+        if(persona!=null){
             Registro registro= new Registro(persona,coordenada);
             registros.add(registro);
+            logger.info("Punto añadido");
         }
         else{
             logger.error("usuario o coordenadas inexistentes");
